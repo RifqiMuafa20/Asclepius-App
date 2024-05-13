@@ -4,8 +4,7 @@
     <string name="camera">Kamera</string>
     <string name="gallery">Galeri</string>
     <string name="analyze">Analyze</string>
-    <string name="result">Hasil Analisis</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="result">Analisis</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_home">Home</string>
     <string name="title_history">History</string>
@@ -21,4 +20,9 @@
     <string name="article_date">Date</string>
     <string name="article_author">Author</string>
     <string name="tflite_failed_to_load_model_with_error">Image classifier failed to initialize. See error logs for details</string>
+    <string name="hasil_analisis">Hasil Analisis :</string>
+    <string name="inference">Inference</string>
+    <string name="inference_time">Inference Time : %S ms</string>
+    <string name="result_text">Result : %S (%.2f%%)</string>
+    <string name="back">okay</string>
 </resources>

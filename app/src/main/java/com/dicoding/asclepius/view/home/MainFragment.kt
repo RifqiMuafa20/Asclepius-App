@@ -57,13 +57,13 @@ class MainFragment : Fragment() {
         binding.galleryButton.setOnClickListener {
             startGallery()
         }
-//        binding.analyzeButton.setOnClickListener {
-//            currentImageUri?.let {
-//                analyzeImage(it)
-//            } ?: run {
-//                showToast("No image selected")
-//            }
-//        }
+        binding.analyzeButton.setOnClickListener {
+            currentImageUri?.let {
+                analyzeImage(it)
+            } ?: run {
+                showToast("No image selected")
+            }
+        }
 
         return root
     }
@@ -103,15 +103,15 @@ class MainFragment : Fragment() {
         }
     }
 
-//    private fun analyzeImage(uri: Uri) {
-//        moveToResult()
-//    }
-//
-//    private fun moveToResult() {
-//        val intent = Intent(requireActivity(), ResultActivity::class.java)
-//        intent.putExtra(ResultActivity.EXTRA_IMAGE_URI, currentImageUri.toString())
-//        startActivity(intent)
-//    }
+    private fun analyzeImage(uri: Uri) {
+        moveToResult()
+    }
+
+    private fun moveToResult() {
+        val intent = Intent(requireActivity(), ResultActivity::class.java)
+        intent.putExtra(ResultActivity.EXTRA_IMAGE_URI, currentImageUri.toString())
+        startActivity(intent)
+    }
 
     private fun showToast(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
