@@ -15,6 +15,4 @@ interface PhotoHistoryDao {
     @Query("SELECT * FROM photo_visited")
     fun getPhotoHistory(): LiveData<List<PhotoHistory>>
 
-    @Query("DELETE FROM photo_visited")
-    fun deleteAll()
 }

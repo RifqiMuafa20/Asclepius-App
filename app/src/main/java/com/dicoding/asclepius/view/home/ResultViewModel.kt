@@ -1,7 +1,6 @@
 package com.dicoding.asclepius.view.home
 
 import android.app.Application
-import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import com.dicoding.asclepius.data.local.entity.PhotoHistory
 import com.dicoding.asclepius.data.local.room.PhotoHistoryDao
