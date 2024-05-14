@@ -1,5 +1,6 @@
 package com.dicoding.asclepius.view.history
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.net.toUri
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.asclepius.data.local.entity.PhotoHistory
 import com.dicoding.asclepius.databinding.ItemHistoryBinding
+import com.dicoding.asclepius.view.home.ResultActivity
 
 class HistoryAdapter : ListAdapter<PhotoHistory, HistoryAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
@@ -20,6 +22,11 @@ class HistoryAdapter : ListAdapter<PhotoHistory, HistoryAdapter.MyViewHolder>(DI
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val photo = getItem(position)
         holder.bind(photo)
+        holder.itemView.setOnClickListener {
+            val intent = Intent(it.context, ResultActivity::class.java)
+            intent.putExtra(ResultActivity.EXTRA_IMAGE_URI, photo.photo)
+            it.context.startActivity(intent)
+        }
     }
 
     class MyViewHolder(private val binding: ItemHistoryBinding) :

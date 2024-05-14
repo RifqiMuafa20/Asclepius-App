@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -41,6 +42,8 @@ class ResultActivity : AppCompatActivity() {
             resultViewModel.addVisited(filename, result, inference, date, imageUri.toString())
             finish()
         }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun analyzeImage(uri: Uri) {
@@ -90,6 +93,14 @@ class ResultActivity : AppCompatActivity() {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {
