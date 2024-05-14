@@ -25,4 +25,6 @@
     <string name="inference_time">Inference Time : %S ms</string>
     <string name="result_text">Result : %S (%.2f%%)</string>
     <string name="back">okay</string>
+    <string name="photo_name">Photo Name</string>
+    <string name="delete_icon">Hapus</string>
 </resources>
