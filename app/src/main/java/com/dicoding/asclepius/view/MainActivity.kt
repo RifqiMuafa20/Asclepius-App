@@ -23,7 +23,11 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
+        navView.isItemActiveIndicatorEnabled = false
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,

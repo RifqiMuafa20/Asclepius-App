@@ -24,7 +24,11 @@
     <string name="inference">Inference</string>
     <string name="inference_time">Inference Time : %S ms</string>
     <string name="result_text">Result : %S (%.2f%%)</string>
-    <string name="back">okay</string>
+    <string name="back">Okay</string>
     <string name="photo_name">Photo Name</string>
     <string name="delete_icon">Hapus</string>
+    <string name="photo_result">Photo Result</string>
+    <string name="news_photo">news photo</string>
+    <string name="photo_preview">photo preview</string>
+    <string name="app_logo">app logo</string>
 </resources>

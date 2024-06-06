@@ -3,7 +3,6 @@ package com.dicoding.asclepius.view.article
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -15,9 +14,9 @@ import com.dicoding.asclepius.data.remote.response.ArticlesItem
 import com.dicoding.asclepius.databinding.ItemArticleBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
-import android.content.pm.PackageManager
 
-class ArticleAdapter(private val context: Context) : ListAdapter<ArticlesItem, ArticleAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class ArticleAdapter(private val context: Context) :
+    ListAdapter<ArticlesItem, ArticleAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,12 +24,19 @@ class ArticleAdapter(private val context: Context) : ListAdapter<ArticlesItem, A
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val article = getItem(position)
+        val article =
+            if (getItem(position).title == "[Removed]" || getItem(position).title == null) {
+                getItem(position - 1)
+            } else {
+                getItem(position)
+            }
+
         holder.bind(article)
+
         holder.itemView.setOnClickListener {
             Toast.makeText(context, "Item clicked: ${article.title}", Toast.LENGTH_SHORT).show()
 
-            if(article.url == null){
+            if (article.url == null) {
                 Toast.makeText(context, "Link not found", Toast.LENGTH_SHORT).show()
             }
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(article.url))
@@ -38,7 +44,8 @@ class ArticleAdapter(private val context: Context) : ListAdapter<ArticlesItem, A
         }
     }
 
-    class MyViewHolder(private val binding: ItemArticleBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MyViewHolder(private val binding: ItemArticleBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(article: ArticlesItem) {
             val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
             val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())

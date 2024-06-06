@@ -35,7 +35,7 @@ class ResultActivity : AppCompatActivity() {
         val pathSegments = imageUri.toString().split("/")
         val filename = pathSegments[pathSegments.size - 1]
 
-        val date = SimpleDateFormat("dd/MM/yyyy").format(Date())
+        val date = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Date())
 
         binding.backButton.setOnClickListener {
             resultViewModel.addVisited(filename, result, inference, date, imageUri.toString())
@@ -63,8 +63,13 @@ class ResultActivity : AppCompatActivity() {
                             if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
                                 val resultLabel = it[0].categories[0].label
                                 val resultScore = it[0].categories[0].score * 100
-                                val resultText = getString(R.string.result_text, resultLabel.toString(), resultScore)
-                                val inferenceText = getString(R.string.inference_time, inferenceTime.toString())
+                                val resultText = getString(
+                                    R.string.result_text,
+                                    resultLabel.toString(),
+                                    resultScore
+                                )
+                                val inferenceText =
+                                    getString(R.string.inference_time, inferenceTime.toString())
 
                                 result = resultText
                                 inference = inferenceText
@@ -73,7 +78,8 @@ class ResultActivity : AppCompatActivity() {
                                 binding.inferenceText.text = inferenceText
 
                             } else {
-                                binding.resultText.text = getString(R.string.tflite_failed_to_load_model_with_error)
+                                binding.resultText.text =
+                                    getString(R.string.tflite_failed_to_load_model_with_error)
                             }
                         }
                     }

@@ -18,13 +18,10 @@
 
     <ImageView
         android:id="@+id/previewImageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/galleryButton"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_margin="25dp"
+        android:contentDescription="@string/photo_preview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -32,38 +29,35 @@
 
     <Button
         android:id="@+id/galleryButton"
-        android:layout_width="0dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="12sp"
         android:text="@string/gallery"
-        app:layout_constraintBottom_toTopOf="@+id/analyzeButton"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/analyzeButton"
         app:layout_constraintEnd_toStartOf="@+id/cameraButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_toBottomOf="@+id/previewImageView"
-        app:layout_constraintStart_toStartOf="@+id/analyzeButton" />
+        app:layout_constraintStart_toStartOf="@+id/previewImageView" />
 
     <Button
         android:id="@+id/cameraButton"
-        android:layout_width="0dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/camera"
-        app:layout_constraintBottom_toTopOf="@+id/analyzeButton"
-        app:layout_constraintEnd_toEndOf="@+id/analyzeButton"
-        app:layout_constraintStart_toEndOf="@+id/galleryButton"
-        app:layout_constraintTop_toBottomOf="@+id/previewImageView" />
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/previewImageView"
+        app:layout_constraintStart_toEndOf="@id/galleryButton"
+        app:layout_constraintTop_toTopOf="@+id/galleryButton" />
 
     <Button
         android:id="@+id/analyzeButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_margin="50dp"
         android:text="@string/analyze"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
